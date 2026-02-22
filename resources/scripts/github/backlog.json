@@ -1,0 +1,280 @@
+{
+  "repo": "Developer199239/Vendora",
+  "milestones": [
+    { "title": "Foundation (Week 1)", "description": "Project skeleton, config, Flyway baseline, shared infrastructure." },
+    { "title": "Auth (Week 2)", "description": "JWT auth, refresh rotation, admin user management." },
+    { "title": "Product (Week 3)", "description": "Product catalog + seller management + admin moderation." },
+    { "title": "Order (Week 4)", "description": "Order creation, customer order APIs, seller fulfillment, admin overrides." },
+    { "title": "Testing (Week 5)", "description": "Unit + integration + controller tests, Testcontainers." },
+    { "title": "Docker & Deployment (Week 6)", "description": "Dockerfile + docker-compose + env config." },
+    { "title": "Documentation & Cleanup (Week 7)", "description": "README, architecture docs, polish." }
+  ],
+  "issues": [
+    {
+      "title": "[EPIC] Foundation",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["epic", "backend"],
+      "complexity": "M",
+      "body": "Establish a production-ready Spring Boot 3 / Java 21 modular monolith foundation for Vendora.\n\nAcceptance Criteria:\n- Application boots with no errors\n- Flyway runs successfully against PostgreSQL\n- Base endpoints respond as expected\n"
+    },
+    {
+      "title": "[EPIC] Auth",
+      "milestone": "Auth (Week 2)",
+      "labels": ["epic", "security", "backend"],
+      "complexity": "L",
+      "body": "Implement JWT auth (access + refresh rotation), roles (CUSTOMER/SELLER/ADMIN), and admin user management.\n"
+    },
+    {
+      "title": "[EPIC] Product",
+      "milestone": "Product (Week 3)",
+      "labels": ["epic", "backend"],
+      "complexity": "L",
+      "body": "Implement product catalog + inventory with Customer/Seller/Admin separation.\n"
+    },
+    {
+      "title": "[EPIC] Order",
+      "milestone": "Order (Week 4)",
+      "labels": ["epic", "backend"],
+      "complexity": "L",
+      "body": "Implement orders with atomic stock decrement, customer order APIs, seller fulfillment, and admin overrides.\n"
+    },
+    {
+      "title": "[EPIC] Testing",
+      "milestone": "Testing (Week 5)",
+      "labels": ["epic", "testing"],
+      "complexity": "L",
+      "body": "Add unit + integration + controller tests using JUnit 5, Mockito, and Testcontainers.\n"
+    },
+    {
+      "title": "[EPIC] Docker & Deployment",
+      "milestone": "Docker & Deployment (Week 6)",
+      "labels": ["epic", "docker"],
+      "complexity": "M",
+      "body": "Containerize app and provide docker-compose for local and prod-like runs.\n"
+    },
+    {
+      "title": "[EPIC] Documentation & Cleanup",
+      "milestone": "Documentation & Cleanup (Week 7)",
+      "labels": ["epic", "docs"],
+      "complexity": "M",
+      "body": "Write portfolio-grade docs and perform cleanup/polish.\n"
+    },
+
+    {
+      "title": "Project initialization and strict modular package structure",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["backend", "api"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Foundation\n\nInitialize the vendora backend as Spring Boot 3 / Java 21 / Maven and create the strict modular package structure under `com.vendora.modules.*`.\n\nAcceptance Criteria:\n- App starts without errors\n- Swagger UI loads and shows health endpoint\n- Package structure matches spec\n"
+    },
+    {
+      "title": "Base configuration (profiles, PostgreSQL, logging)",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["backend"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Foundation\n\nCreate `application.yml` plus `application-dev.yml` and `application-prod.yml` with env-var based DB config and production-safe logging.\n"
+    },
+    {
+      "title": "Global API error handling contract",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["api"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Foundation\n\nImplement consistent JSON error responses via `@RestControllerAdvice` for validation and domain exceptions.\n"
+    },
+    {
+      "title": "CORS configuration for frontend integration",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["backend"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Foundation\n\nConfigure CORS to allow frontend applications from different origins.\n\nAcceptance Criteria:\n- Frontend can call API from configured origins\n- Origins configurable via env var\n"
+    },
+    {
+      "title": "Spring Boot Actuator + operational endpoints",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["backend"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Foundation\n\nAdd Spring Boot Actuator for health checks and operational monitoring.\n\nAcceptance Criteria:\n- /actuator/health returns UP\n- /actuator/info shows app info\n- Other endpoints secured\n"
+    },
+    {
+      "title": "Flyway baseline migrations (schema init)",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["database"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Foundation\n\nCreate `V1__init.sql` with all tables, constraints, and indexes as per design.\n"
+    },
+    {
+      "title": "Seed roles and admin bootstrap strategy",
+      "milestone": "Foundation (Week 1)",
+      "labels": ["database", "security"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Foundation\n\nCreate `V2__seed_roles.sql` and document admin bootstrap strategy.\n"
+    },
+
+    {
+      "title": "Spring Security baseline + role model",
+      "milestone": "Auth (Week 2)",
+      "labels": ["security"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Auth\n\nAdd stateless security baseline for APIs, role-based authorization, and password encoder.\n"
+    },
+    {
+      "title": "Auth domain + persistence (users, roles, refresh tokens)",
+      "milestone": "Auth (Week 2)",
+      "labels": ["security", "database"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Auth\n\nImplement entities + repositories for users/roles/refresh tokens (refresh stored hashed).\n"
+    },
+    {
+      "title": "JWT implementation (access + refresh rotation)",
+      "milestone": "Auth (Week 2)",
+      "labels": ["security"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Auth\n\nImplement JWT access token issuance/validation and refresh token rotation with revocation.\n"
+    },
+    {
+      "title": "Auth REST API (register/login/refresh/logout/me/change-password)",
+      "milestone": "Auth (Week 2)",
+      "labels": ["api", "security"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Auth\n\nImplement auth endpoints with DTO validation and correct error codes.\n"
+    },
+    {
+      "title": "Admin user management API (list users, roles, activate/deactivate)",
+      "milestone": "Auth (Week 2)",
+      "labels": ["api", "security"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Auth\n\nImplement admin endpoints to list/search users, update status, and manage roles.\n"
+    },
+    {
+      "title": "Seller profile management APIs (CRUD)",
+      "milestone": "Auth (Week 2)",
+      "labels": ["api", "security"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Auth\n\nAllow sellers to create and manage their profile.\n\nAcceptance Criteria:\n- SELLER can create/view/update own profile\n- Profile includes display name and phone\n"
+    },
+
+    {
+      "title": "Product domain + persistence (categories, products, images)",
+      "milestone": "Product (Week 3)",
+      "labels": ["database", "backend"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Product\n\nImplement product entities and repositories with product status and stock constraints.\n"
+    },
+    {
+      "title": "Public product APIs (browse, detail, search/filter)",
+      "milestone": "Product (Week 3)",
+      "labels": ["api"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Product\n\nImplement public product browse and detail endpoints with paging/filtering; only ACTIVE visible.\n"
+    },
+    {
+      "title": "Seller product management APIs (create/update/list/activate)",
+      "milestone": "Product (Week 3)",
+      "labels": ["api", "security"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Product\n\nImplement seller endpoints to manage own products; enforce ownership and module boundaries.\n"
+    },
+    {
+      "title": "Admin product moderation API (activate/deactivate)",
+      "milestone": "Product (Week 3)",
+      "labels": ["api", "security"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Product\n\nImplement admin endpoint to change product status.\n"
+    },
+    {
+      "title": "Category management APIs (CRUD)",
+      "milestone": "Product (Week 3)",
+      "labels": ["api", "database"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Product\n\nImplement category management for admins and public listing.\n\nAcceptance Criteria:\n- Public can list all categories\n- Only ADMIN can create/update/delete\n- Handle products referencing deleted categories\n"
+    },
+
+    {
+      "title": "Order domain + persistence (orders + order_items)",
+      "milestone": "Order (Week 4)",
+      "labels": ["database", "backend"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Order\n\nImplement order entities and repositories with shipping snapshot + item snapshots.\n"
+    },
+    {
+      "title": "Order creation transaction (stock validation + atomic decrement)",
+      "milestone": "Order (Week 4)",
+      "labels": ["backend"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Order\n\nImplement transactional order creation with stock validation and safe decrement to prevent overselling.\n"
+    },
+    {
+      "title": "Customer order APIs (create/list/detail/cancel)",
+      "milestone": "Order (Week 4)",
+      "labels": ["api", "security"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Order\n\nImplement customer order endpoints and cancel rules with strict ownership enforcement.\n"
+    },
+    {
+      "title": "Seller order view APIs + fulfillment status updates",
+      "milestone": "Order (Week 4)",
+      "labels": ["api", "security"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Order\n\nImplement seller endpoints to view orders containing their items and update fulfillment status for their items only.\n"
+    },
+    {
+      "title": "Admin order APIs (list all, status override)",
+      "milestone": "Order (Week 4)",
+      "labels": ["api", "security"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Order\n\nImplement admin endpoints to list all orders and override status.\n"
+    },
+
+    {
+      "title": "Unit tests for service layer (Mockito)",
+      "milestone": "Testing (Week 5)",
+      "labels": ["testing"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Testing\n\nAdd service unit tests for auth/product/order core rules.\n"
+    },
+    {
+      "title": "Integration tests with Testcontainers PostgreSQL",
+      "milestone": "Testing (Week 5)",
+      "labels": ["testing", "database"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Testing\n\nAdd Testcontainers-based integration tests validating Flyway + repositories + transactional order creation.\n"
+    },
+    {
+      "title": "Controller/security tests (MockMvc)",
+      "milestone": "Testing (Week 5)",
+      "labels": ["testing", "security"],
+      "complexity": "L",
+      "body": "Epic: [EPIC] Testing\n\nAdd MockMvc tests for security rules (401/403) and validation (400).\n"
+    },
+
+    {
+      "title": "Dockerfile (multi-stage) for vendora backend",
+      "milestone": "Docker & Deployment (Week 6)",
+      "labels": ["docker"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Docker & Deployment\n\nAdd a multi-stage Dockerfile to build and run the app with Java 21.\n"
+    },
+    {
+      "title": "docker-compose (app + postgres) for local and prod-like runs",
+      "milestone": "Docker & Deployment (Week 6)",
+      "labels": ["docker"],
+      "complexity": "S",
+      "body": "Epic: [EPIC] Docker & Deployment\n\nAdd docker-compose for app + Postgres with env-var configuration and volumes.\n"
+    },
+    {
+      "title": "GitHub Actions CI pipeline (test + build)",
+      "milestone": "Docker & Deployment (Week 6)",
+      "labels": ["ci-cd"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Docker & Deployment\n\nSet up GitHub Actions to run tests on PRs and build Docker image.\n\nAcceptance Criteria:\n- Tests run automatically on PR\n- Docker image builds on main push\n- Failures block PR merge\n"
+    },
+
+    {
+      "title": "Documentation: README + architecture + API docs strategy",
+      "milestone": "Documentation & Cleanup (Week 7)",
+      "labels": ["docs"],
+      "complexity": "M",
+      "body": "Epic: [EPIC] Documentation & Cleanup\n\nWrite portfolio-grade README, module boundary rules, and API documentation strategy (OpenAPI).\n"
+    }
+  ]
+}
