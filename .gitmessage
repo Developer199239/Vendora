@@ -1,0 +1,41 @@
+# Commit Message Template
+#
+# Format: <type>(<scope>): <subject>
+#
+# Types:
+#   feat:     New feature
+#   fix:      Bug fix
+#   docs:     Documentation changes
+#   style:    Code style/formatting (no logic change)
+#   refactor: Code refactoring
+#   perf:     Performance improvements
+#   test:     Adding or updating tests
+#   build:    Build system or dependencies
+#   ci:       CI/CD configuration changes
+#   chore:    Maintenance tasks
+#   revert:   Revert a previous commit
+#
+# Scopes:
+#   auth, product, order, common, config, db, api, test, docs, docker, ci
+#
+# Subject:
+#   - Max 50 characters
+#   - Imperative mood ("add" not "added")
+#   - Lowercase first letter
+#   - No period at the end
+#
+# Body (optional):
+#   - Wrap at 72 characters
+#   - Explain what and why, not how
+#   - Reference issues: "Closes #123" or "Fixes #456"
+#
+# Footer (optional):
+#   - Breaking changes: "BREAKING CHANGE: description"
+#
+# Example:
+# feat(auth): add JWT refresh token rotation
+#
+# Users can now refresh their access tokens without re-authenticating.
+# Old refresh tokens are automatically revoked when new ones are issued.
+#
+# Closes #10
